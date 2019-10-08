@@ -27,11 +27,10 @@ assert(calAndDanAppleCount == 8, "Was expecting 8, but got \(calAndDanAppleCount
 
 // d. Set all the values in applesDict to 0
 
-applesDict["Adam"] = 0
-applesDict["Beth"] = 0
-applesDict["Cal"] = 0
-applesDict["Dan"] = 0
-applesDict["Eve"] = 0
+for (index, _) in applesDict {
+    applesDict[index] = 0
+}
+print(applesDict)
 
 for (_, value) in applesDict {
 assert(value == 0, "Was expecting 0, but got \(value)")
@@ -165,7 +164,11 @@ var frequencyDict: [Character: Int] = [:]
 var mostFrequentChar: Character = "?"
 
 for (character, int) in frequencyDict {
-    
+    for char in myString {
+        frequencyDict[char] ?? 1 {
+            
+        }
+    }
 }
 
 //assert(mostFrequentChar == "e", "Was expecting e, but got \(mostFrequentChar)")
