@@ -127,8 +127,19 @@ var peopleWithScores: [[String: String]] = [
     ]
 ]
 
-var highestScoringName = ""
-
+var highestScore = 0
+var fullName = ""
+for personDict in peopleWithScores {
+    let scoreAsString = personDict["score"] ?? "0"
+    let scoreAsInt = Int(scoreAsString) ?? 0
+    if scoreAsInt > highestScore {
+        highestScore = scoreAsInt
+        let firstName = personDict["firstName"] ?? "0"
+        let lastName = personDict["lastName"] ?? "0"
+        fullName = firstName + " " + lastName
+    }
+}
+print("\(fullName) has the highest score which was \(highestScore)")
 
 //assert(highestScoringName == "Garry Mckenzie", "Was expecting Garry Mckenzie, but got \(highestScoringName)")
 
@@ -163,12 +174,5 @@ var frequencyDict: [Character: Int] = [:]
 
 var mostFrequentChar: Character = "?"
 
-for (character, int) in frequencyDict {
-    for char in myString {
-        frequencyDict[char] ?? 1 {
-            
-        }
-    }
-}
 
 //assert(mostFrequentChar == "e", "Was expecting e, but got \(mostFrequentChar)")
