@@ -174,5 +174,30 @@ var frequencyDict: [Character: Int] = [:]
 
 var mostFrequentChar: Character = "?"
 
+var ignored = ""
+// my code
 
-//assert(mostFrequentChar == "e", "Was expecting e, but got \(mostFrequentChar)")
+for char in myString.lowercased() {
+    if char.isWhitespace || char.isPunctuation { continue }
+    ignored += String(char)
+}
+
+for char in ignored {
+    if let count = frequencyDict[char] {
+        frequencyDict[char] = count + 1
+    }else{
+        frequencyDict[char] = 1
+    }
+}
+print(frequencyDict)
+
+var largestValue = 0
+
+for (key, value) in frequencyDict {
+    if value > largestValue {
+        largestValue = value
+        mostFrequentChar = key
+    }
+}
+
+assert(mostFrequentChar == "e", "Was expecting e, but got \(mostFrequentChar)")
